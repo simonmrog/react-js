@@ -1,0 +1,9 @@
+.alert-error {
+  background-color: red;
+  color: #fff;
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family:  'Staatliches', cursive;
+}

@@ -1,0 +1,31 @@
+.Appointment {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid #e1e1e1;
+  color: black;
+}
+
+.Appointment p {
+  font-weight: bold;
+  margin-bottom: .8rem;
+}
+
+.Appointment p span {
+  font-weight: normal;
+}
+
+.Appointment:first-of-type {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.Appointment:last-of-type {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.button.delete,
+.button.delete:hover {
+  background-color: rgb(230, 41, 41);
+  color: white;
+  margin-top: 2rem;
+}
