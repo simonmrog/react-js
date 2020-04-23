@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from "uuid/v4";
 import './Form.css';
@@ -7,6 +7,7 @@ const Form = ({ createAppointment }) => {
 
   // STATES
   const [appointment, setAppointment] = useState({
+    id: "",
     pet: "",
     owner: "",
     date: "",
@@ -15,11 +16,8 @@ const Form = ({ createAppointment }) => {
   });
   const { pet, owner, date, time, symptoms } = appointment;
 
-  const [ formValidation, setFormValidation ] = useState({
-    validForm: true,
-    validationError: ""
-  });
-  const { validForm, validationError } = formValidation;
+  const [ showAlert, setAlert ] = useState(false);
+  const [validationError, setValidationError ] = useState("");
 
   const updateAppointment = e => {
     setAppointment({
@@ -29,14 +27,11 @@ const Form = ({ createAppointment }) => {
   };
 
   const validateForm = () => {
-    setFormValidation({ validForm: true, validationError: "" });
 
     if (pet.trim() === "" || owner.trim() === "" || date.trim() === "" ||
         time.trim() === "" || symptoms.trim() === "")
-        setFormValidation({
-          validForm: false,
-          validationError: "All Fields Are Required"
-        });
+      return [false, "All Fields Are Required"];
+    else return [true, ""];
   };
 
   const addAppointment = appointment => {
@@ -44,31 +39,40 @@ const Form = ({ createAppointment }) => {
     createAppointment(newAppointment);
   };
 
-  const scheduleAppointment = e => {
-    e.preventDefault();
-
-    // validate form
-    validateForm();
-    if (validForm) {
-      // create appointment
-      setAppointment({ ...appointment, id: uuid() })
+  useEffect(() => {
+    if (appointment.id !== "") {
+      setAppointment({ ...appointment, id: uuid() });
       addAppointment(appointment);
       // restart form
       setAppointment({
+        id: "",
         pet: "",
         owner: "",
         date: "",
         time: "",
         symptoms: ""
       });
-
     }
+
+  }, [ appointment ]);
+
+  const scheduleAppointment = e => {
+    e.preventDefault();
+    console.log("holi")
+    // validate form
+    let [validForm, validationError ] = validateForm();
+    setValidationError(validationError);
+    if (validForm) {
+      // create appointment
+      setAppointment({ ...appointment, id: uuid() })
+      setAlert(false);
+    } else setAlert(true);
   }
 
   return (
     <div className="form-wrapper">
       <h2>Schedule Appointment</h2>
-      { !validForm && <p className="alert-error">{ validationError }</p> }
+      { showAlert && <p className="alert-error">{ validationError }</p> }
       <form onSubmit={ scheduleAppointment }>
         <label>Pet Name</label>
         <input

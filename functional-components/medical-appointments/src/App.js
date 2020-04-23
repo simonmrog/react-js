@@ -13,6 +13,7 @@ const App = () => {
   useEffect(() => {
     if (appointments.length > 0)
       localStorage.setItem("appointments", JSON.stringify(appointments));
+    else localStorage.removeItem("appointments");
   }, [appointments]);
 
   const createAppointment = appointment => {
