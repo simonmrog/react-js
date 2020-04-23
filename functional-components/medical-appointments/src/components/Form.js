@@ -34,12 +34,13 @@ const Form = ({ createAppointment }) => {
     else return [true, ""];
   };
 
-  const addAppointment = appointment => {
-    const newAppointment = { ...appointment, id: uuid() };
-    createAppointment(newAppointment);
-  };
-
   useEffect(() => {
+
+    const addAppointment = appointment => {
+      const newAppointment = { ...appointment, id: uuid() };
+      createAppointment(newAppointment);
+    };
+
     if (appointment.id !== "") {
       setAppointment({ ...appointment, id: uuid() });
       addAppointment(appointment);
@@ -54,7 +55,7 @@ const Form = ({ createAppointment }) => {
       });
     }
 
-  }, [ appointment ]);
+  }, [ appointment, createAppointment ]);
 
   const scheduleAppointment = e => {
     e.preventDefault();
