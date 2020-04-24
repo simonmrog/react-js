@@ -1,0 +1,25 @@
+.user {
+  text-align: center;
+}
+
+.blog-list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.blog-link {
+  margin: 1rem;
+  background-color:#fff;
+  flex-basis: 30%;
+}
+
+.blog-link-a {
+  display: inline-block;
+  padding: 1rem;
+  width: 100%;
+  text-decoration: none;
+  color: #D8471F;
+  font-weight: bold;
+}

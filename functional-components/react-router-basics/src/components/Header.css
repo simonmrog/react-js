@@ -1,0 +1,20 @@
+.main-nav {
+  background-color: #007291;
+  width: 100%;
+  padding: 10px 12px;
+  overflow: hidden;
+}
+
+.main-nav li {
+  display: inline-block;
+}
+
+.header-link {
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-link:hover {
+  background-color: #d8460b;
+}

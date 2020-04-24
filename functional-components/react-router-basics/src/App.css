@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App,
+.main-container {
+  min-height: 100vh;
+}
+
+.view {
+  padding: 50px;
+  background-color: #f5c600;
+  text-align: center;
+}
