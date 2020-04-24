@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const createStore = reducer => {
-  let internalState;
+const createStore = (reducer, initialState) => {
+  let internalState = initialState;
   let handlers = [];
   return {
     dispatch: intent => {
@@ -32,7 +32,7 @@ const view = model => {
     </div>);
 };
 
-const update = (model={ running: false, time: 0 }, intent) => {
+const update = (model, intent) => {
   const updates = {
     "TICK": model => Object.assign(model, { time: model.time + (model.running ? 1 : 0) }),
     "START": model => Object.assign(model, { running: true }),
@@ -41,7 +41,7 @@ const update = (model={ running: false, time: 0 }, intent) => {
   return updates[intent](model);
 };
 
-let container = createStore(update);
+let container = createStore(update, { running: false, time: 0 });
 
 const render = () => ReactDOM.render(view(container.getState()), document.getElementById('root'));
 container.subscribe(render);
