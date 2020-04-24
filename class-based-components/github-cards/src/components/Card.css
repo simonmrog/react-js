@@ -1,0 +1,11 @@
+.card {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0.5em;
+  margin: 1rem;
+}
+
+.image {
+  width: 100px;
+}
