@@ -3,7 +3,7 @@ import "./Question.css";
 
 import ErrorMessage from "./ErrorMessage";
 
-const Question = () => {
+const Question = props => {
 
   // STATE
   const [ budget, setBudget ] = useState(0);
@@ -11,8 +11,8 @@ const Question = () => {
 
   // HANDLERS
   const onChangeHandler = e => {
-    const value = e.target.value;
-    if (!isNaN(value)) setBudget(parseInt(value));
+    const value = parseInt(e.target.value);
+    setBudget(value)
   };
 
   const onSubmitHandler = e => {
@@ -20,6 +20,8 @@ const Question = () => {
     if (budget <= 0 || isNaN(budget)) setValidation(false);
     else {
       setValidation(true);
+      props.setBudget(budget);
+      props.setRest(budget);
     }
   }
 
