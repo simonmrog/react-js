@@ -13,7 +13,6 @@ const Game = () => {
   const handleClick = i => {
     let newBoard = [ ...board];
     if (!winner && !newBoard[i]) {
-      console.log("enter")
       newBoard[i] = xIsNext ? "X" : "O";
       setBoard(newBoard);
       setXisNext(xIsNext => !xIsNext);
