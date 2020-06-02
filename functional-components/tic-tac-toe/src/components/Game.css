@@ -1,0 +1,33 @@
+.game {
+  padding-top: 30px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #c6957d;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 3em;
+}
+
+.turn-message {
+  margin-top: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.start-game {
+  margin: 20px;
+  padding: 10px 12px;
+  border: none;
+  background-color: #9bdbff;
+  cursor: pointer;
+}
+
+.start-game:hover {
+  background-color: #ccc;
+}
