@@ -1,0 +1,1 @@
+{"ast":null,"code":"import \"../src/components/DigitalClock.css\";","map":{"version":3,"sources":["/home/simonmrog/simon/programming/github/react-js/functional-components/react-clock/pages/_app.js"],"names":[],"mappings":"AAAA,OAAO,oCAAP","sourcesContent":["import \"../src/components/DigitalClock.css\";\n"]},"metadata":{},"sourceType":"module"}
